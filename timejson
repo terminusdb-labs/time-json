@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z $1 ] || [ -z $2 ]
+if [ -z "$1" ] || [ -z "$2" ]
 then
 	echo "Usage: $0 [command] [output_filename]"
 	exit 2
