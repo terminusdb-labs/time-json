@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ -z $1 ] || [ -z $2 ]
+then
+	echo "Usage: $0 [command] [output_filename]"
+	exit 2
+fi
+
+/usr/bin/time --quiet -o "$2" -f \
+'{
+   "involuntary_context_switches": %c,
+   "real_time_formatted": "%E",
+   "real_time_seconds": %e,
+   "major_page_faults": %F,
+   "avg_total_memory_use_kb": %K,
+   "max_resident_set_kb": %M,
+   "cpu_percentage": "%P",
+   "minor_page_faults": %R,
+   "system_time_seconds": %S,
+   "user_time_seconds": %U,
+   "voluntary_context_switches": %w,
+   "file_system_outputs": %O,
+   "average_resident_set_kb": %t,
+   "file_system_inputs": %I,
+   "exit_status": %x
+}' $1
+
