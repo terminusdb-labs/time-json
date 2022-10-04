@@ -6,6 +6,10 @@ Just GNU `time` wrapped in a JSON format.
 
 `./timejson [output_filename] [command]`
 
+## Requirements
+
+- GNU Time. Not installed by default on some Ubuntu servers!
+
 ## Why?
 
 A lot of benchmarking tools exists. They focus mostly on micro-benchmarking. Performing a lot of requests,
