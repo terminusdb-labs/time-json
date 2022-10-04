@@ -2,11 +2,11 @@
 
 if [ -z "$1" ] || [ -z "$2" ]
 then
-	echo "Usage: $0 [command] [output_filename]"
+	echo "Usage: $0 [output_filename] [command]"
 	exit 2
 fi
 
-/usr/bin/time --quiet -o "$2" -f \
+/usr/bin/time --quiet -o "$1" -f \
 '{
    "involuntary_context_switches": %c,
    "real_time_formatted": "%E",
@@ -23,5 +23,5 @@ fi
    "average_resident_set_kb": %t,
    "file_system_inputs": %I,
    "exit_status": %x
-}' $1
+}' "${@:2}"
 
